@@ -1,0 +1,54 @@
+{
+    "name": "tsf-support",
+    "displayName": "TSF Support",
+    "description": "Language support for TSF",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.71.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onLanguage:typescript"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "typescript",
+                "aliases": [
+                    "TypeScript (Fork)",
+                    "typescript"
+                ],
+                "extensions": [
+                    "ts"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "typescript",
+                "scopeName": "source.ts",
+                "path": "./syntaxes/TypeScript.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "eslint . --ext .ts,.tsx",
+        "watch": "tsc -watch -p ./",
+        "format": "prettier --write \"**/*.{ts,tsx,json}\""
+    },
+    "devDependencies": {
+        "@types/node": "^18.7.16",
+        "@types/vscode": "^1.71.0",
+        "@typescript-eslint/eslint-plugin": "^5.30.0",
+        "@typescript-eslint/parser": "^5.30.0",
+        "eslint": "^8.13.0",
+        "prettier": "^2.7.1",
+        "typescript": "^4.7.2"
+    }
+}
