@@ -1215,18 +1215,21 @@
         },
         "function-expression": {
             "name": "meta.function.expression.ts",
-            "begin": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(?:(async)\\s+)?(function\\b)(?:\\s*(\\*))?(?:(?:\\s+|(?<=\\*))([_$[:alpha:]][_$[:alnum:]]*))?\\s*",
+            "begin": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(?:(async)\\s+)?(?:(macro)\\s+)?(function\\b)(?:\\s*(\\*))?(?:(?:\\s+|(?<=\\*))([_$[:alpha:]][_$[:alnum:]]*))?\\s*",
             "beginCaptures": {
                 "1": {
                     "name": "storage.modifier.async.ts"
                 },
                 "2": {
-                    "name": "storage.type.function.ts"
+                    "name": "storage.modifier.macro.ts"
                 },
                 "3": {
-                    "name": "keyword.generator.asterisk.ts"
+                    "name": "storage.type.function.ts"
                 },
                 "4": {
+                    "name": "keyword.generator.asterisk.ts"
+                },
+                "5": {
                     "name": "meta.definition.function.ts entity.name.function.ts"
                 }
             },
@@ -2226,7 +2229,7 @@
                             "name": "keyword.control.default.ts"
                         }
                     },
-                    "end": "(?=$|;|^\\s*$|(?:^\\s*(?:abstract|async|class|const|declare|enum|export|function|import|interface|let|module|namespace|return|type|var)\\b))",
+                    "end": "(?=$|;|^\\s*$|(?:^\\s*(?:abstract|async|macro|class|const|declare|enum|export|function|import|interface|let|module|namespace|return|type|var)\\b))",
                     "patterns": [
                         {
                             "include": "#interface-declaration"
@@ -2238,7 +2241,7 @@
                 },
                 {
                     "name": "meta.export.ts",
-                    "begin": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(export)(?:\\s+(type))?\\b(?!(\\$)|(\\s*:))((?=\\s*[\\{*])|((?=\\s*[_$[:alpha:]][_$[:alnum:]]*(\\s|,))(?!\\s*(?:abstract|async|class|const|declare|enum|export|function|import|interface|let|module|namespace|return|type|var)\\b)))",
+                    "begin": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(export)(?:\\s+(type))?\\b(?!(\\$)|(\\s*:))((?=\\s*[\\{*])|((?=\\s*[_$[:alpha:]][_$[:alnum:]]*(\\s|,))(?!\\s*(?:abstract|async|macro|class|const|declare|enum|export|function|import|interface|let|module|namespace|return|type|var)\\b)))",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.control.export.ts"
@@ -2247,7 +2250,7 @@
                             "name": "keyword.control.type.ts"
                         }
                     },
-                    "end": "(?=$|;|^\\s*$|(?:^\\s*(?:abstract|async|class|const|declare|enum|export|function|import|interface|let|module|namespace|return|type|var)\\b))",
+                    "end": "(?=$|;|^\\s*$|(?:^\\s*(?:abstract|async|macro|class|const|declare|enum|export|function|import|interface|let|module|namespace|return|type|var)\\b))",
                     "patterns": [
                         {
                             "include": "#import-export-declaration"
